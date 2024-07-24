@@ -1,7 +1,6 @@
 package arquitectura.hexagonal.infra.consumer;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 public class Consumer {
 
     @RabbitListener(queues = { "${alejodev.queue.name}" })
-    public void receive(@Payload Data message) {
+    public void receive(String message) {
 
         System.out.println(message);
 
